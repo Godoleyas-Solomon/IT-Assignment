@@ -1,0 +1,60 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .back-link:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for student in students %}
+        <li><a href="{{ url_for('student', id=student['ID']) }}">{{ student['First Name'] }} {{ student['Last Name'] }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">Back</a>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Excel Sheets</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        margin-top: 20px;
+        transition: 0.5s;
+      }
+
+      a:hover {
+        transition: 0.5s;
+        color: white;
+      }
+      body {
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+      }
+      .sheet-link {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4" style="text-align: center;">Excel Sheets</h1>
+      <a href="{{ url_for('home') }}">Back</a>
+      <div class="list-group">
+        {% for sheet in sheets %}
+        <a
+          href="{{ url_for('display_sheet', sheet_name=sheet) }}"
+          class="list-group-item list-group-item-action sheet-link"
+          >Sheet {{ sheet }}</a
+        >
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

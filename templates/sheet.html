@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Sheet {{ sheet_name }}</title>
+  </head>
+  <body>
+    {% extends 'bootstrap/base.html' %}
+
+{% block content %}
+    <h1>Sheet {{ sheet_name }}</h1>
+    <h2>Table</h2>
+    <table class="table table-striped">
+        {{ table|safe }}
+    </table>
+
+    {% for graph in graphs %}
+    <h2>Graph</h2>
+    {{ graph|safe }}
+    {% endfor %}
+
+    <div class="mt-4">
+        <a href="{{ url_for('employee_index') }}" class="btn btn-primary">Back to Sheets</a>
+    </div>
+{% endblock %}
+  </body>
+</html>
